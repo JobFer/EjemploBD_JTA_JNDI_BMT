@@ -6,8 +6,6 @@
 package dao;
 
 import entities.Categoria;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.annotation.Resource;
 import javax.ejb.EJBContext;
 import javax.ejb.Stateless;
@@ -38,11 +36,12 @@ public class EJBSubordinado {
 //    @TransactionAttribute(value = TransactionAttributeType.NEVER)
 //    @TransactionAttribute(value = TransactionAttributeType.REQUIRES_NEW)
     public void subordinado() throws Exception {
+        
         System.out.println("*************** subordinado ****************");
-                
         UserTransaction tx = context.getUserTransaction();
         tx.begin();
-        em.persist(new Categoria("miCategoriaSubordinada"));
+//        em.persist(new Categoria("miCategoriaSubordinada"));
+        em.persist(new Categoria(1));
         tx.commit();            
     }
 }

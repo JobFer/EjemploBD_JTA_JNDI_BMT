@@ -42,18 +42,22 @@ public class CategoriaFacade extends AbstractFacade<Categoria> {
         super(Categoria.class);
     }
 
-    public void crearCategoria() throws SystemException{
+    public void crearCategoria() throws Exception{
         System.out.println("*************** principal ****************");
         UserTransaction tx = context.getUserTransaction();
+
         try {
             tx.begin();
+
             em.persist(new Categoria("miCategoria"));
 //            em.persist(new Categoria(1)); //Para que se produzca una excepcion
+
             eJBSubordinado.subordinado();
-            tx.commit();            
             
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }        
+            System.out.println("************ Excepcion: " + ex.getMessage());
+        }finally{
+            tx.commit();
+        }
     }
 }
