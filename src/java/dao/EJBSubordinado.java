@@ -40,8 +40,8 @@ public class EJBSubordinado {
         System.out.println("*************** subordinado ****************");
         UserTransaction tx = context.getUserTransaction();
         tx.begin();
-//        em.persist(new Categoria("miCategoriaSubordinada"));
-        em.persist(new Categoria(1));
+        em.persist(new Categoria("miCategoriaSubordinada"));
+//        em.persist(new Categoria(1));
         tx.commit();            
     }
 }
